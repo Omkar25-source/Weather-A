@@ -1,0 +1,155 @@
+:root {
+    --bg-color: #f0f4f8;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --panel-bg: rgba(255, 255, 255, 0.75);
+    --panel-border: rgba(255, 255, 255, 0.5);
+    --panel-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 100% 0%, #e0e7ff 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, #dbeafe 0%, transparent 50%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+.weather-container {
+    max-width: 1200px;
+}
+
+/* Glassmorphism utility for modern Apple-like feel */
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--panel-border);
+    box-shadow: var(--panel-shadow);
+}
+
+/* Search Box Focus Effects */
+.search-box {
+    transition: all 0.3s ease;
+}
+.search-box:focus-within {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), var(--panel-shadow);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.9);
+}
+.search-box input {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.search-box input::placeholder {
+    font-weight: 400;
+    color: #94a3b8;
+}
+.search-box input:focus {
+    box-shadow: none !important;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    transform: scale(1.02);
+}
+
+/* Health Alert Styling */
+.health-alert {
+    background: rgba(254, 252, 232, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(253, 230, 138, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(253, 224, 71, 0.1);
+}
+
+/* Weather Card specifics */
+.weather-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.weather-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+}
+
+.weather-icon {
+    font-size: 5.5rem;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(59, 130, 246, 0.2));
+}
+
+.temp-display h1 {
+    font-size: 6.5rem;
+    letter-spacing: -3px;
+    color: var(--text-primary);
+}
+
+/* Bottom detail boxes (Humidity, AQI, UV) */
+.detail-box {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease;
+}
+.detail-box:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fs-7 {
+    font-size: 0.75rem;
+}
+
+/* Custom badge colors */
+.bg-warning {
+    background-color: #fde047 !important;
+}
+.bg-success {
+    background-color: #86efac !important;
+    color: #14532d !important;
+}
+
+/* Typography refinements */
+h2 {
+    letter-spacing: -0.5px;
+}
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .temp-display h1 {
+        font-size: 5rem;
+    }
+    .weather-icon {
+        font-size: 4.5rem;
+    }
+    .weather-card {
+        padding: 2rem !important;
+    }
+    .detail-box {
+        background: rgba(255, 255, 255, 0.6);
+    }
+}
